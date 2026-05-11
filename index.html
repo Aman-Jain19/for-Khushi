@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Khushi 🌹</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose-deep: #8B1A2F;
+      --rose-mid: #C0394F;
+      --rose-light: #E8748A;
+      --rose-blush: #F7C5CE;
+      --rose-petal: #FDE8EC;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --leaf: #2D6A4F;
+      --leaf-light: #52B788;
+      --cream: #FDF6EE;
+      --text-dark: #2C1810;
+      --text-mid: #6B3A3A;
+    }
+
+    body {
+      background: var(--cream);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(232,116,138,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(253,232,236,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Floating petals background */
+    .petal-bg { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+    .fp {
+      position: absolute;
+      border-radius: 60% 40% 60% 40%;
+      opacity: 0;
+      animation: fallPetal linear infinite;
+    }
+    @keyframes fallPetal {
+      0%   { opacity: 0; transform: translateY(-20px) rotate(0deg); }
+      10%  { opacity: 0.4; }
+      90%  { opacity: 0.2; }
+      100% { opacity: 0; transform: translateY(100vh) rotate(360deg); }
+    }
+
+    .container {
+      max-width: 560px;
+      width: 90%;
+      text-align: center;
+      padding: 3rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── ROSES SVG ── */
+    .bouquet-svg {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto 2.5rem;
+      display: block;
+      animation: floatUp 3.5s ease-in-out infinite;
+      filter: drop-shadow(0 12px 28px rgba(139,26,47,0.18));
+    }
+    @keyframes floatUp {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+
+    /* Petal bloom animation */
+    .petal { transform-origin: center; animation: bloomIn 0.8s cubic-bezier(.17,.67,.35,1.3) both; }
+    @keyframes bloomIn {
+      from { opacity:0; transform: scale(0.2); }
+      to   { opacity:1; transform: scale(1); }
+    }
+    .stem-group { animation: swayGently 4s ease-in-out infinite; transform-origin: bottom center; }
+    @keyframes swayGently {
+      0%,100% { transform: rotate(-1.5deg); }
+      50%     { transform: rotate(1.5deg); }
+    }
+    .sparkle { animation: twinkle 2s ease-in-out infinite; }
+    @keyframes twinkle {
+      0%,100% { opacity:0; transform: scale(0); }
+      50%     { opacity:1; transform: scale(1); }
+    }
+
+    /* ── MESSAGE CARD ── */
+    .card {
+      background: #fff;
+      border: 1px solid rgba(192,57,79,0.15);
+      border-radius: 20px;
+      padding: 2.2rem 2.5rem;
+      position: relative;
+      box-shadow: 0 4px 40px rgba(139,26,47,0.08), 0 1px 4px rgba(139,26,47,0.06);
+      animation: fadeUp 1s ease-out 0.5s both;
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 60%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--rose-mid), transparent);
+      border-radius: 2px;
+    }
+
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 600;
+      color: var(--rose-deep);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+    .sub {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .divider {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin: 0 auto 1.5rem;
+      max-width: 200px;
+    }
+    .divider span { flex:1; height:1px; background: rgba(192,57,79,0.2); }
+    .divider i { color: var(--rose-mid); font-size: 0.9rem; }
+
+    .message {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 3vw, 1.15rem);
+      color: var(--text-dark);
+      line-height: 1.85;
+    }
+    .message .highlight {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--rose-deep);
+    }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--text-mid);
+      opacity: 0.7;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Falling petals -->
+<div class="petal-bg" id="petalBg"></div>
+
+<div class="container">
+
+  <!-- Roses SVG Bouquet -->
+  <svg class="bouquet-svg" viewBox="0 0 380 360" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Stems -->
+    <g class="stem-group">
+      <path d="M190 350 Q178 300 170 250" stroke="#2D6A4F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <path d="M190 350 Q202 300 210 250" stroke="#2D6A4F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <path d="M190 350 Q190 295 190 240" stroke="#1B4332" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M190 350 Q155 305 140 275" stroke="#2D6A4F" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M190 350 Q225 305 240 275" stroke="#2D6A4F" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- Leaves -->
+      <ellipse cx="160" cy="300" rx="16" ry="7" fill="#52B788" transform="rotate(-40 160 300)" opacity="0.9"/>
+      <ellipse cx="220" cy="300" rx="16" ry="7" fill="#52B788" transform="rotate(40 220 300)" opacity="0.9"/>
+      <ellipse cx="175" cy="270" rx="13" ry="5" fill="#40916C" transform="rotate(-20 175 270)" opacity="0.8"/>
+    </g>
+
+    <!-- Ribbon -->
+    <path d="M155 338 Q190 326 225 338 Q230 352 190 356 Q150 352 155 338Z" fill="#E8748A" opacity="0.85"/>
+    <path d="M162 338 Q190 330 218 338" stroke="#C0394F" stroke-width="1" fill="none" opacity="0.5"/>
+    <text x="190" y="349" text-anchor="middle" font-family="Lato,sans-serif" font-size="10" fill="#fff" letter-spacing="2" opacity="0.95">with love</text>
+
+    <!-- CENTER ROSE (big) -->
+    <g class="petal" style="animation-delay:0.05s">
+      <!-- Outer guard petals -->
+      <ellipse cx="190" cy="168" rx="28" ry="18" fill="#C0394F" transform="rotate(-60 190 168)" opacity="0.7"/>
+      <ellipse cx="190" cy="168" rx="28" ry="18" fill="#C0394F" transform="rotate(0 190 168)" opacity="0.7"/>
+      <ellipse cx="190" cy="168" rx="28" ry="18" fill="#C0394F" transform="rotate(60 190 168)" opacity="0.7"/>
+      <!-- Mid petals -->
+      <ellipse cx="190" cy="168" rx="22" ry="13" fill="#D9485F" transform="rotate(-40 190 168)"/>
+      <ellipse cx="190" cy="168" rx="22" ry="13" fill="#D9485F" transform="rotate(20 190 168)"/>
+      <ellipse cx="190" cy="168" rx="22" ry="13" fill="#D9485F" transform="rotate(80 190 168)"/>
+      <!-- Inner petals -->
+      <ellipse cx="190" cy="168" rx="15" ry="9" fill="#E8748A" transform="rotate(-20 190 168)"/>
+      <ellipse cx="190" cy="168" rx="15" ry="9" fill="#E8748A" transform="rotate(40 190 168)"/>
+      <ellipse cx="190" cy="168" rx="15" ry="9" fill="#E8748A" transform="rotate(100 190 168)"/>
+      <!-- Center bud -->
+      <ellipse cx="190" cy="168" rx="9" ry="12" fill="#8B1A2F"/>
+      <ellipse cx="190" cy="162" rx="5" ry="7" fill="#C0394F" opacity="0.6"/>
+    </g>
+
+    <!-- LEFT ROSE -->
+    <g class="petal" style="animation-delay:0.2s">
+      <ellipse cx="130" cy="210" rx="22" ry="14" fill="#B5304A" transform="rotate(-60 130 210)" opacity="0.7"/>
+      <ellipse cx="130" cy="210" rx="22" ry="14" fill="#B5304A" transform="rotate(0 130 210)" opacity="0.7"/>
+      <ellipse cx="130" cy="210" rx="22" ry="14" fill="#B5304A" transform="rotate(60 130 210)" opacity="0.7"/>
+      <ellipse cx="130" cy="210" rx="17" ry="10" fill="#C0394F" transform="rotate(-30 130 210)"/>
+      <ellipse cx="130" cy="210" rx="17" ry="10" fill="#C0394F" transform="rotate(30 130 210)"/>
+      <ellipse cx="130" cy="210" rx="17" ry="10" fill="#C0394F" transform="rotate(90 130 210)"/>
+      <ellipse cx="130" cy="210" rx="11" ry="7" fill="#E8748A" transform="rotate(10 130 210)"/>
+      <ellipse cx="130" cy="210" rx="11" ry="7" fill="#E8748A" transform="rotate(70 130 210)"/>
+      <ellipse cx="130" cy="210" rx="7" ry="9" fill="#8B1A2F"/>
+      <ellipse cx="130" cy="205" rx="4" ry="5" fill="#C0394F" opacity="0.55"/>
+    </g>
+
+    <!-- RIGHT ROSE -->
+    <g class="petal" style="animation-delay:0.35s">
+      <ellipse cx="250" cy="210" rx="22" ry="14" fill="#B5304A" transform="rotate(-60 250 210)" opacity="0.7"/>
+      <ellipse cx="250" cy="210" rx="22" ry="14" fill="#B5304A" transform="rotate(0 250 210)" opacity="0.7"/>
+      <ellipse cx="250" cy="210" rx="22" ry="14" fill="#B5304A" transform="rotate(60 250 210)" opacity="0.7"/>
+      <ellipse cx="250" cy="210" rx="17" ry="10" fill="#C0394F" transform="rotate(-30 250 210)"/>
+      <ellipse cx="250" cy="210" rx="17" ry="10" fill="#C0394F" transform="rotate(30 250 210)"/>
+      <ellipse cx="250" cy="210" rx="17" ry="10" fill="#C0394F" transform="rotate(90 250 210)"/>
+      <ellipse cx="250" cy="210" rx="11" ry="7" fill="#E8748A" transform="rotate(10 250 210)"/>
+      <ellipse cx="250" cy="210" rx="11" ry="7" fill="#E8748A" transform="rotate(70 250 210)"/>
+      <ellipse cx="250" cy="210" rx="7" ry="9" fill="#8B1A2F"/>
+      <ellipse cx="250" cy="205" rx="4" ry="5" fill="#C0394F" opacity="0.55"/>
+    </g>
+
+    <!-- TOP LEFT small rose -->
+    <g class="petal" style="animation-delay:0.15s">
+      <ellipse cx="148" cy="150" rx="17" ry="11" fill="#AA2840" transform="rotate(-60 148 150)" opacity="0.7"/>
+      <ellipse cx="148" cy="150" rx="17" ry="11" fill="#AA2840" transform="rotate(0 148 150)" opacity="0.7"/>
+      <ellipse cx="148" cy="150" rx="17" ry="11" fill="#AA2840" transform="rotate(60 148 150)" opacity="0.7"/>
+      <ellipse cx="148" cy="150" rx="12" ry="7" fill="#C0394F" transform="rotate(-30 148 150)"/>
+      <ellipse cx="148" cy="150" rx="12" ry="7" fill="#C0394F" transform="rotate(30 148 150)"/>
+      <ellipse cx="148" cy="150" rx="12" ry="7" fill="#C0394F" transform="rotate(90 148 150)"/>
+      <ellipse cx="148" cy="150" rx="7" ry="8" fill="#8B1A2F"/>
+    </g>
+
+    <!-- TOP RIGHT small rose -->
+    <g class="petal" style="animation-delay:0.28s">
+      <ellipse cx="232" cy="150" rx="17" ry="11" fill="#AA2840" transform="rotate(-60 232 150)" opacity="0.7"/>
+      <ellipse cx="232" cy="150" rx="17" ry="11" fill="#AA2840" transform="rotate(0 232 150)" opacity="0.7"/>
+      <ellipse cx="232" cy="150" rx="17" ry="11" fill="#AA2840" transform="rotate(60 232 150)" opacity="0.7"/>
+      <ellipse cx="232" cy="150" rx="12" ry="7" fill="#C0394F" transform="rotate(-30 232 150)"/>
+      <ellipse cx="232" cy="150" rx="12" ry="7" fill="#C0394F" transform="rotate(30 232 150)"/>
+      <ellipse cx="232" cy="150" rx="12" ry="7" fill="#C0394F" transform="rotate(90 232 150)"/>
+      <ellipse cx="232" cy="150" rx="7" ry="8" fill="#8B1A2F"/>
+    </g>
+
+    <!-- FAR LEFT tiny bud -->
+    <g class="petal" style="animation-delay:0.45s">
+      <ellipse cx="100" cy="178" rx="11" ry="7" fill="#C0394F" transform="rotate(-40 100 178)" opacity="0.75"/>
+      <ellipse cx="100" cy="178" rx="11" ry="7" fill="#C0394F" transform="rotate(20 100 178)" opacity="0.75"/>
+      <ellipse cx="100" cy="178" rx="11" ry="7" fill="#C0394F" transform="rotate(80 100 178)" opacity="0.75"/>
+      <ellipse cx="100" cy="178" rx="5" ry="7" fill="#8B1A2F"/>
+    </g>
+
+    <!-- FAR RIGHT tiny bud -->
+    <g class="petal" style="animation-delay:0.55s">
+      <ellipse cx="280" cy="178" rx="11" ry="7" fill="#C0394F" transform="rotate(-40 280 178)" opacity="0.75"/>
+      <ellipse cx="280" cy="178" rx="11" ry="7" fill="#C0394F" transform="rotate(20 280 178)" opacity="0.75"/>
+      <ellipse cx="280" cy="178" rx="11" ry="7" fill="#C0394F" transform="rotate(80 280 178)" opacity="0.75"/>
+      <ellipse cx="280" cy="178" rx="5" ry="7" fill="#8B1A2F"/>
+    </g>
+
+    <!-- Gold sparkles -->
+    <g class="sparkle" style="animation-delay:0s">
+      <polygon points="85,140 87,135 89,140 84,137 90,137" fill="#C9A84C"/>
+    </g>
+    <g class="sparkle" style="animation-delay:0.5s">
+      <polygon points="295,148 297,143 299,148 294,145 300,145" fill="#C9A84C"/>
+    </g>
+    <g class="sparkle" style="animation-delay:1s">
+      <polygon points="190,115 192,110 194,115 189,112 195,112" fill="#E8748A"/>
+    </g>
+    <g class="sparkle" style="animation-delay:0.7s">
+      <circle cx="98" cy="220" r="3" fill="#F7C5CE"/>
+    </g>
+    <g class="sparkle" style="animation-delay:1.3s">
+      <circle cx="282" cy="228" r="3" fill="#F7C5CE"/>
+    </g>
+    <g class="sparkle" style="animation-delay:0.3s">
+      <circle cx="165" cy="122" r="2.5" fill="#C9A84C"/>
+    </g>
+    <g class="sparkle" style="animation-delay:1.6s">
+      <circle cx="215" cy="122" r="2.5" fill="#C9A84C"/>
+    </g>
+  </svg>
+
+  <!-- Message Card -->
+  <div class="card">
+    <p class="sub">a little something for you</p>
+    <h1 class="name">Hey, Khushi 🌹</h1>
+    <div class="divider">
+      <span></span>
+      <i>✦</i>
+      <span></span>
+    </div>
+    <p class="message">
+      Here are some roses for you — because you deserve them today and every day.<br><br>
+      I heard today was a tough one, and I just want you to know —
+      <span class="highlight">I'm so proud of you</span> for pushing through it.
+      You're stronger than you think, and watching you carry yourself through hard days
+      is genuinely something special.<br><br>
+    </p>
+    <p class="footer-note">— always in your corner 💛</p>
+  </div>
+
+</div>
+
+<script>
+  // Generate falling petals
+  const bg = document.getElementById('petalBg');
+  const colors = ['#F7C5CE','#E8748A','#C0394F','#FDE8EC','#C9A84C'];
+  for (let i = 0; i < 18; i++) {
+    const el = document.createElement('div');
+    el.className = 'fp';
+    const size = Math.random() * 10 + 6;
+    el.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${Math.random()*8+6}s;
+      animation-delay:${Math.random()*6}s;
+      transform:rotate(${Math.random()*360}deg);
+      border-radius: ${40+Math.random()*30}% ${60-Math.random()*20}%;
+    `;
+    bg.appendChild(el);
+  }
+</script>
+</body>
+</html>
